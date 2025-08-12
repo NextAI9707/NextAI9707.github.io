@@ -1,11 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>yaorongke</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>
+  /* 原有样式保持不变，只追加以下 4 行 */
+  @media(max-width:600px){
+    body{font-size:16px;line-height:1.7}
+    .container{padding:1.2rem}
+    h1{font-size:2rem}
+  }
+</style>
+<meta charset="UTF-8" />
+<title>花豹 · Hua Bao | 学术简历</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+:root{
+  --bg:#fdfaf7;
+  --fg:#333;
+  --accent:#b8860b;
+  --link:#005f73;
+  --border:#e5e0da;
+  --font-serif:"Noto Serif SC","Songti SC",serif;
+  --font-sans:"PingFang SC","Helvetica Neue",sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#111827;
+  --fg:#f3f4f6;
+  --accent:#fbbf24;
+  --border:#374151;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-serif);
+  line-height:1.9;
+  transition:background .3s,color .3s;
+}
+.container{
+  max-width:800px;
+  margin:0 auto;
+  padding:2.5rem 1.5rem;
+}
+header{text-align:center;margin-bottom:3rem}
+header h1{
+  font-size:2.5rem;
+  letter-spacing:.1em;
+  color:var(--accent);
+}
+header p{
+  font-family:var(--font-sans);
+  font-size:.9rem;
+  margin-top:.5rem;
+}
+h2{
+  font-family:var(--font-sans);
+  font-weight:600;
+  font-size:1.25rem;
+  margin:2.5rem 0 1rem;
+  color:var(--accent);
+  border-bottom:1px solid var(--border);
+  padding-bottom:.25rem;
+}
+section ul{list-style:none;padding-left:0}
+section li{position:relative;padding-left:1.25em;margin-bottom:.75em}
+section li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:var(--accent);
+}
+table{width:100%;border-collapse:collapse;margin:.5rem 0;font-size:.9rem}
+th,td{padding:.4em .6em;border-bottom:1px solid var(--border)}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+#toggle{
+  position:fixed;top:1rem;right:1.5rem;
+  background:transparent;border:none;
+  font-size:1.3rem;cursor:pointer;color:var(--accent)
+}
+@media(max-width:600px){.container{padding:1.5rem}}
+</style>
 </head>
+
 <body>
-    <h1>yaorongke的个人主页</h1>
-    <h1>Hello ~</h1>
+<button id="toggle" title="切换深色模式">🌓</button>
+
+<div class="container">
+  <header>
+    <h1>花 豹</h1>
+    <p>
+      电话：130 2319 8081<br />
+      邮箱：<a href="mailto:huabao9707@163.com">huabao9707@163.com</a><br />
+      GitHub：<a href="https://github.com/NextAI9707" target="_blank">NextAI9707</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+    <table>
+      <tr><th>学位</th><th>院校</th><th>时间</th></tr>
+      <tr><td>硕士</td><td>东华大学</td><td>2020.09 – 2022.07</td></tr>
+      <tr><td>学士</td><td>安徽工程大学</td><td>2015.08 – 2019.06</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+    <ul>
+      <li>周彬, 花豹, 陆玉前 等. 面向设备点检故障根因分析的因果知识建模方法[J]. <em>计算机集成制造系统</em>, 2023, 29(08): 2708-2721.</li>
+      <li>花豹, 周彬, 顾星海 等. 基于图神经网络的工艺表格语义相似性度量[J]. <em>计算机集成制造系统</em>, 2022, 28(12): 3805-3821.</li>
+      <li>Gu X, Hua B, Liu Y, et al. Semantic Entity Recognition and Relation Construction Method for Assembly Process Document[J]. <em>Journal of Shanghai Jiao Tong University (Science)</em>, 2024, 29(3): 537-556.</li>
+      <li>Bin Zhou, Bao Hua, et al. An end-to-end tabular information-oriented causality event evolutionary knowledge graph for manufacturing documents[J]. <em>Advanced Engineering Informatics</em>, 2021.</li>
+      <li>Bin Zhou, Xingwang Shen, et al. Semantic-aware event link reasoning over industrial knowledge graph embedding time series data[J]. <em>International Journal of Production Research</em>, 2022, 1-18.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Patents & Software Copyrights</h2>
+    <ul>
+      <li>基于知识图谱+图注意力网络的商品推荐系统 登记号: 2021SR1015413</li>
+      <li>基于知识图谱的文本语义可视化搜索及查询系统 登记号: 2021SR0663303</li>
+      <li>医用人脸识别系统 登记号: 2021SR0213867</li>
+      <li>HBOCR 全功能文字识别软件 登记号: 2021SR0245809</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Honors & Awards</h2>
+    <ul>
+      <li>研究生期间：研究生学业奖学金（一等、二等）、研究生校综合奖学金</li>
+      <li>本科期间：安徽合力奖学金、“三好学生”称号、连续三年校奖学金（前3%，含一等奖学金）</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <ul>
+      <li>英语：CET-6 516</li>
+      <li>计算机：国家二级 JAVA、C、Python、C++（优秀）、Web</li>
+      <li>数据库：华为云 GaussDB 工作级</li>
+      <li>软件开发：中级软件设计师</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Industrial Projects</h2>
+    <ul>
+      <li>2021 中冶宝钢技术服务有限公司：行车智能运维平台 – 故障知识图谱 & 问答系统</li>
+      <li>2021 上海地铁 5 号线智能运维管理系统 – 产品功能与原型设计</li>
+      <li>2021 欧莱雅包装盒文字识别 – PaddleOCR 二次开发</li>
+      <li>2021 OpenEuler 高校开源项目 – 自动化报告系统（优秀开发者）</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const toggle = document.getElementById('toggle');
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+}
+toggle.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+</script>
 </body>
 </html>
