@@ -1,170 +1,209 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<style>
-  /* 原有样式保持不变，只追加以下 4 行 */
-  @media(max-width:600px){
-    body{font-size:16px;line-height:1.7}
-    .container{padding:1.2rem}
-    h1{font-size:2rem}
-  }
-</style>
 <meta charset="UTF-8" />
-<title>花豹 · Hua Bao | 学术简历</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hua Bao | 小清新学术简历</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+<!-- 谷歌字体 -->
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fdfaf7;
-  --fg:#333;
-  --accent:#b8860b;
-  --link:#005f73;
-  --border:#e5e0da;
-  --font-serif:"Noto Serif SC","Songti SC",serif;
-  --font-sans:"PingFang SC","Helvetica Neue",sans-serif;
+  --bg-1:#fdfdfd;
+  --bg-2:#f1f7fe;
+  --accent:#4ade80;
+  --text:#374151;
+  --card:#ffffffcc;
+  --shadow:0 8px 32px rgba(0,0,0,.08);
 }
 [data-theme="dark"]{
-  --bg:#111827;
-  --fg:#f3f4f6;
-  --accent:#fbbf24;
-  --border:#374151;
+  --bg-1:#111827;
+  --bg-2:#1f2937;
+  --accent:#22d3ee;
+  --text:#e5e7eb;
+  --card:#1f2937cc;
+  --shadow:0 8px 32px rgba(0,0,0,.3);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:var(--bg);
-  color:var(--fg);
-  font-family:var(--font-serif);
-  line-height:1.9;
-  transition:background .3s,color .3s;
+  font-family:'ZCOOL XiaoWei',serif;
+  background:linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  color:var(--text);
+  transition:.4s;
+  overflow-x:hidden;
 }
-.container{
-  max-width:800px;
-  margin:0 auto;
-  padding:2.5rem 1.5rem;
-}
+canvas#particles{position:fixed;top:0;left:0;z-index:-1}
+.container{position:relative;max-width:820px;margin:0 auto;padding:2rem 1.2rem}
 header{text-align:center;margin-bottom:3rem}
 header h1{
-  font-size:2.5rem;
-  letter-spacing:.1em;
-  color:var(--accent);
+  font-size:2.8rem;
+  background:linear-gradient(90deg,var(--accent),#38bdf8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fadeInDown 1s;
 }
-header p{
-  font-family:var(--font-sans);
-  font-size:.9rem;
-  margin-top:.5rem;
+@keyframes fadeInDown{
+  from{opacity:0;transform:translateY(-30px)}
+  to{opacity:1;transform:none}
 }
-h2{
-  font-family:var(--font-sans);
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:1.8rem 2rem;
+  margin-bottom:2rem;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+  transform:translateY(30px);
+  opacity:0;
+  animation:popUp .8s forwards;
+}
+@keyframes popUp{
+  to{transform:none;opacity:1}
+}
+.card:nth-child(2){animation-delay:.1s}
+.card:nth-child(3){animation-delay:.2s}
+.card:nth-child(4){animation-delay:.3s}
+.card:nth-child(5){animation-delay:.4s}
+.card h2{
+  font-family:'Poppins',sans-serif;
   font-weight:600;
-  font-size:1.25rem;
-  margin:2.5rem 0 1rem;
+  font-size:1.3rem;
+  margin-bottom:.8rem;
   color:var(--accent);
-  border-bottom:1px solid var(--border);
-  padding-bottom:.25rem;
 }
-section ul{list-style:none;padding-left:0}
-section li{position:relative;padding-left:1.25em;margin-bottom:.75em}
-section li::before{
-  content:'—';
+ul{list-style:none}
+li{position:relative;padding-left:1.2em;margin:.4em 0}
+li::before{
+  content:'';
   position:absolute;
-  left:0;
-  color:var(--accent);
+  left:0;top:.5em;
+  width:.4em;height:.4em;
+  background:var(--accent);
+  border-radius:50%;
 }
 table{width:100%;border-collapse:collapse;margin:.5rem 0;font-size:.9rem}
-th,td{padding:.4em .6em;border-bottom:1px solid var(--border)}
-a{color:var(--link);text-decoration:none}
+th,td{padding:.4em .6em;border-bottom:1px solid #e5e7eb}
+a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-#toggle{
+.toggle{
   position:fixed;top:1rem;right:1.5rem;
-  background:transparent;border:none;
-  font-size:1.3rem;cursor:pointer;color:var(--accent)
+  background:var(--accent);color:#fff;
+  border:none;padding:.5rem .8rem;
+  border-radius:50px;font-size:1.2rem;
+  cursor:pointer;z-index:9999;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
-@media(max-width:600px){.container{padding:1.5rem}}
+@media(max-width:600px){
+  header h1{font-size:2.2rem}
+  .card{padding:1.2rem 1rem}
+}
 </style>
 </head>
 
 <body>
-<button id="toggle" title="切换深色模式">🌓</button>
+<button class="toggle" id="toggleTheme" title="切换深色">🌓</button>
+<canvas id="particles"></canvas>
 
 <div class="container">
   <header>
     <h1>花 豹</h1>
     <p>
-      电话：130 2319 8081<br />
-      邮箱：<a href="mailto:huabao9707@163.com">huabao9707@163.com</a><br />
-      GitHub：<a href="https://github.com/NextAI9707" target="_blank">NextAI9707</a>
+      📞 130-2319-8081<br>
+      📧 <a href="mailto:huabao9707@163.com">huabao9707@163.com</a><br>
+      🌐 <a href="https://github.com/NextAI9707" target="_blank">GitHub</a>
     </p>
   </header>
 
-  <section>
+  <div class="card">
     <h2>Education</h2>
     <table>
       <tr><th>学位</th><th>院校</th><th>时间</th></tr>
       <tr><td>硕士</td><td>东华大学</td><td>2020.09 – 2022.07</td></tr>
       <tr><td>学士</td><td>安徽工程大学</td><td>2015.08 – 2019.06</td></tr>
     </table>
-  </section>
+  </div>
 
-  <section>
+  <div class="card">
     <h2>Publications</h2>
     <ul>
-      <li>周彬, 花豹, 陆玉前 等. 面向设备点检故障根因分析的因果知识建模方法[J]. <em>计算机集成制造系统</em>, 2023, 29(08): 2708-2721.</li>
-      <li>花豹, 周彬, 顾星海 等. 基于图神经网络的工艺表格语义相似性度量[J]. <em>计算机集成制造系统</em>, 2022, 28(12): 3805-3821.</li>
-      <li>Gu X, Hua B, Liu Y, et al. Semantic Entity Recognition and Relation Construction Method for Assembly Process Document[J]. <em>Journal of Shanghai Jiao Tong University (Science)</em>, 2024, 29(3): 537-556.</li>
-      <li>Bin Zhou, Bao Hua, et al. An end-to-end tabular information-oriented causality event evolutionary knowledge graph for manufacturing documents[J]. <em>Advanced Engineering Informatics</em>, 2021.</li>
-      <li>Bin Zhou, Xingwang Shen, et al. Semantic-aware event link reasoning over industrial knowledge graph embedding time series data[J]. <em>International Journal of Production Research</em>, 2022, 1-18.</li>
+      <li>周彬, 花豹 等. 面向设备点检故障根因分析的因果知识建模方法[J]. <em>CIMS</em>, 2023.</li>
+      <li>花豹, 周彬 等. 基于图神经网络的工艺表格语义相似性度量[J]. <em>CIMS</em>, 2022.</li>
+      <li>Gu X, Hua B 等. Semantic Entity Recognition... <em>Journal of SJTU (Science)</em>, 2024.</li>
+      <li>Zhou B, Hua B 等. End-to-End Tabular Causal KG... <em>Advanced Engineering Informatics</em>, 2021.</li>
+      <li>Zhou B, Hua B 等. Semantic-Aware Event Link... <em>International Journal of Production Research</em>, 2022.</li>
     </ul>
-  </section>
+  </div>
 
-  <section>
+  <div class="card">
     <h2>Patents & Software Copyrights</h2>
     <ul>
-      <li>基于知识图谱+图注意力网络的商品推荐系统 登记号: 2021SR1015413</li>
-      <li>基于知识图谱的文本语义可视化搜索及查询系统 登记号: 2021SR0663303</li>
-      <li>医用人脸识别系统 登记号: 2021SR0213867</li>
-      <li>HBOCR 全功能文字识别软件 登记号: 2021SR0245809</li>
+      <li>基于知识图谱+图注意力网络的商品推荐系统 2021SR1015413</li>
+      <li>基于知识图谱的文本语义可视化搜索及查询系统 2021SR0663303</li>
+      <li>医用人脸识别系统 2021SR0213867</li>
+      <li>HBOCR 全功能文字识别软件 2021SR0245809</li>
     </ul>
-  </section>
+  </div>
 
-  <section>
+  <div class="card">
     <h2>Honors & Awards</h2>
     <ul>
-      <li>研究生期间：研究生学业奖学金（一等、二等）、研究生校综合奖学金</li>
-      <li>本科期间：安徽合力奖学金、“三好学生”称号、连续三年校奖学金（前3%，含一等奖学金）</li>
+      <li>研究生学业奖学金（一等、二等）、校综合奖学金</li>
+      <li>安徽合力奖学金、“三好学生”、连续三年校奖学金（前3%）</li>
     </ul>
-  </section>
+  </div>
 
-  <section>
+  <div class="card">
     <h2>Certifications</h2>
     <ul>
-      <li>英语：CET-6 516</li>
-      <li>计算机：国家二级 JAVA、C、Python、C++（优秀）、Web</li>
-      <li>数据库：华为云 GaussDB 工作级</li>
-      <li>软件开发：中级软件设计师</li>
+      <li>CET-6 516</li>
+      <li>国家二级 JAVA / C / Python / C++(优秀) / Web</li>
+      <li>华为云 GaussDB 工作级</li>
+      <li>中级软件设计师</li>
     </ul>
-  </section>
+  </div>
 
-  <section>
+  <div class="card">
     <h2>Industrial Projects</h2>
     <ul>
-      <li>2021 中冶宝钢技术服务有限公司：行车智能运维平台 – 故障知识图谱 & 问答系统</li>
-      <li>2021 上海地铁 5 号线智能运维管理系统 – 产品功能与原型设计</li>
-      <li>2021 欧莱雅包装盒文字识别 – PaddleOCR 二次开发</li>
-      <li>2021 OpenEuler 高校开源项目 – 自动化报告系统（优秀开发者）</li>
+      <li>2021 中冶宝钢行车智能运维平台 – 故障 KG & 问答系统</li>
+      <li>2021 上海地铁 5 号线智能运维系统 – 产品功能设计</li>
+      <li>2021 欧莱雅包装盒 OCR – PaddleOCR 二次开发</li>
+      <li>2021 OpenEuler 开源项目 – 自动化报告系统（优秀开发者）</li>
     </ul>
-  </section>
+  </div>
 </div>
 
+<!-- 粒子 & 主题脚本 -->
 <script>
-const toggle = document.getElementById('toggle');
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.setAttribute('data-theme', 'dark');
+/* ---------- 粒子背景 ---------- */
+const cvs=document.getElementById('particles'),ctx=cvs.getContext('2d');
+let W=window.innerWidth,H=window.innerHeight;
+cvs.width=W;cvs.height=H;
+const particles=[],count=Math.floor(W*H/15000);
+for(let i=0;i<count;i++)particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+1,dx:Math.random()-.5,dy:Math.random()-.5});
+function animate(){
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--accent');
+  particles.forEach(p=>{
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0||p.x>W)p.dx*=-1;
+    if(p.y<0||p.y>H)p.dy*=-1;
+  });
+  requestAnimationFrame(animate);
 }
-toggle.addEventListener('click', () => {
-  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
+animate();
+window.addEventListener('resize',()=>{W=innerWidth;H=innerHeight;cvs.width=W;cvs.height=H;});
+
+/* ---------- 深色模式 ---------- */
+const toggle=document.getElementById('toggleTheme');
+toggle.addEventListener('click',()=>{
+  const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('theme',next);
 });
+if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){
+  document.documentElement.setAttribute('data-theme','dark');
+}
 </script>
 </body>
 </html>
